@@ -1,0 +1,166 @@
+pre[class*="language-"] {
+  background: #f8fafc !important; /* Мягкий светло-серый фон slate-50 */
+  border: 1px solid #e2e8f0 !important; /* Тонкая серая рамка border-slate-200 */
+  border-radius: 12px !important; /* Скругление углов в фирменном стиле */
+  padding: 1rem 1.25rem !important; /* Внутренние отступы */
+  margin: 1.5rem 0 !important; /* Отступы сверху и снизу от текста */
+  overflow: auto !important; /* Прокрутка, если код слишком длинный */
+}
+
+pre[class*="language-"] code,
+code[class*="language-"] {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  color: #334155 !important;
+  text-shadow: none !important;
+}
+
+code:not(pre code) {
+    color: #900007 !important;
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 0.15rem 0.4rem !important;
+    border-radius: 6px !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    letter-spacing: -0.01em;
+}
+
+pre code {
+    color: #900007 !important;
+    background-color: transparent !important;
+    font-family: monospace;
+    font-size: 0.9rem;
+    padding: 0 !important;
+    border-radius: 0;
+    border: none;
+}
+
+/* Стили токенов подсветки (цвета синтаксиса в стиле GitHub) */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #94a3b8 !important; /* Серые комментарии */
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #475569 !important; /* Скобки и знаки препинания */
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #900007 !important;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #0d9488 !important; /* Бирюзовый для строк и атрибутов */
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #0284c7 !important;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #2563eb !important; /* Ярко-синий для ключевых слов (function, const, let) */
+  font-weight: 600;
+}
+
+.token.function,
+.token.class-name {
+  color: #d97706 !important; /* Оранжевый для названий функций */
+}
+.token ol, .token ul {
+    list-style: armenian;
+}
+
+/* resources/css/app.css */
+
+/* 1. СТИЛИ ДЛЯ ЦИТАТ И КОММЕНТАРИЕВ В ТЕКСТЕ (blockquote) */
+.markdown-body blockquote {
+  margin: 1.5rem 0 !important;
+  padding: 0.5rem 0 0.5rem 1.25rem !important;
+  border-left: 3px solid #900007 !important; /* Фирменный бордер в тон категории */
+  color: #64748b !important; /* Мягкий серый цвет текста slate-500 */
+  font-style: italic !important;
+  background: transparent !important;
+}
+.markdown-body blockquote p {
+  margin: 0 !important;
+  line-height: 1.6 !important;
+}
+
+/* 2. СТИЛИ ДЛЯ ИЕРАРХИИ ЗАГОЛОВКОВ ВНУТРИ СТАТЬИ (h1 - h6) */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  color: #0f172a !important; /* Угольный цвет slate-900 */
+  font-family: 'Tenor Sans', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+}
+.markdown-body h1 { font-size: 1.75rem !important; line-height: 1.3 !important; }
+.markdown-body h2 { font-size: 1.5rem !important; line-height: 1.35 !important; }
+.markdown-body h3 { font-size: 1.25rem !important; line-height: 1.4 !important; }
+
+/* 3. СТИЛИ ДЛЯ МАРКИРОВАННЫХ И НУМЕРОВАННЫХ СПИСКОВ (ul, ol) */
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 1.5rem !important;
+  margin: 1rem 0 !important;
+  font-family: sans-serif !important; /* Основной текст читается лучше без засечек */
+  color: #334155 !important; /* slate-750 */
+}
+.markdown-body ul {
+  list-style-type: disc !important; /* Стандартная круглая точка */
+}
+.markdown-body ol {
+  list-style-type: decimal !important; /* Порядковый номер 1, 2, 3... */
+}
+.markdown-body li {
+  margin-bottom: 0.5rem !important;
+  line-height: 1.6 !important;
+}
+.markdown-body li::marker {
+  color: #94a3b8 !important; /* Деликатный серый цвет для маркеров и цифр */
+}
+
+/* 4. ГАРАНТИРОВАННАЯ ПОДСВЕТКА КОММЕНТАРИЕВ ВНУТРИ КОДА PRISM */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #94a3b8 !important; /* Серый приглушенный цвет для строк комментариев */
+  font-style: italic !important;
+}
+
+.editor-toolbar.fullscreen {
+    z-index: 50 !important;
+}
+.CodeMirror,
+.CodeMirror-scroll {
+    z-index: 50 !important;
+}
+
+.EasyMDEContainer .CodeMirror {
+    z-index: 2 !important;
+}
