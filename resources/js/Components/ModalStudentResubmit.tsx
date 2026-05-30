@@ -54,7 +54,7 @@ export function ModalStudentResubmit({
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        post(`/submissions/${submission.id}`, {
+        post(`/submissions/${submission?.id}`, {
             onSuccess: () => {
                 onClose();
                 reset();
