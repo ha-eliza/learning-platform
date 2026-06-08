@@ -17,7 +17,7 @@ const { Title } = Typography;
 
 interface LibraryListProps {
     books: MaterialsProps[];
-    studentWorks: SubmissionProps[]; 
+    studentWorks: SubmissionProps[];
     isTeacher: boolean;
     onRead: (item: MaterialsProps) => void;
     onSend: (item: MaterialsProps) => void;
@@ -85,7 +85,7 @@ export function LibraryList({
                                         <span className="text-slate-300">
                                             |
                                         </span>
-                                        <span className="uppercase text-[#900007] font-bold tracking-wider text-[11px] ml-1">
+                                        <span className="uppercase text-[#900007] font-bold tracking-wider text-[10px] sm:text-[11px] ml-1">
                                             {item.category}
                                         </span>
                                     </div>
@@ -96,7 +96,7 @@ export function LibraryList({
                                             color: "#0f172a",
                                             fontWeight: 600,
                                         }}
-                                        className="text-lg md:text-xl tracking-tight group-hover:text-blue-600 transition-colors"
+                                        className="!text-lg md:!text-[24px] tracking-tight group-hover:text-blue-600 transition-colors"
                                     >
                                         {item.title}
                                     </Title>

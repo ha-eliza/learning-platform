@@ -22,7 +22,7 @@ const { Title } = Typography;
 const SimpleMDE = React.lazy(() => import("react-simplemde-editor"));
 
 export default function Create() {
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, processing, errors } = useForm({
         title: "",
         url: "",
         content: "",

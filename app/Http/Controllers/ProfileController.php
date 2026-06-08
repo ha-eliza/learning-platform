@@ -148,21 +148,16 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $user = Auth::user();
-
         $rules = [
             'name' => ['required', 'string', 'max:255'],
         ];
-
         if ($user->role === 'student') {
             $rules['group'] = ['required', 'string', 'max:50'];
         } else {
             $rules['department'] = ['required', 'string', 'max:255'];
         }
-
         $validated = $request->validate($rules);
-
         $user->update($validated);
-
         return redirect('/dashboard');
     }
 }

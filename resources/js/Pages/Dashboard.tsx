@@ -91,7 +91,7 @@ export default function Dashboard() {
                         {
                             key: "1",
                             label: (
-                                <span className="flex items-center gap-2 font-medium">
+                                <span className="flex items-center gap-2 font-bold">
                                     {isStudent
                                         ? "Моя успеваемость"
                                         : "Проверка работ"}

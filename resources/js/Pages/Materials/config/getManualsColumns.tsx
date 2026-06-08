@@ -38,14 +38,14 @@ export const getManualsColumns = ({
                 <div className="flex items-center gap-4 py-1">
                     <div
                         className={
-                            "p-2.5 rounded-xl border shrink-0 mt-0.5 bg-blue-50/50 text-blue-500 border-blue-100"
+                            "hidden md:block p-2.5 rounded-xl border shrink-0 mt-0.5 bg-blue-50/50 text-blue-500 border-blue-100"
                         }
                     >
                         <FileTextOutlined className="text-base" />
                     </div>
-                    <div className="max-w-[180px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[370px] py-1 cursor-default">
+                    <div className="max-w-[110px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[370px] py-1 cursor-default">
                         <h4
-                            className="font-bold text-slate-800 text-sm sm:text-base truncate block w-full group-hover:text-blue-600 transition-colors m-0"
+                            className="font-bold text-slate-800 text-xs md:text-base truncate block w-full group-hover:text-blue-600 transition-colors m-0"
                             title={titleText}
                         >
                             {titleText}
@@ -136,17 +136,17 @@ export const getManualsColumns = ({
         align: "right",
         width: "15%",
         render: (_, record) => (
-            <Space size="small">
+            <div className="flex items-center gap-0 md:gap-2">
                 <Button
                     type="text"
                     icon={<ReadOutlined />}
-                    className="text-slate-400 hover:text-blue-600 !rounded-xl flex items-center justify-center text-base"
+                    className="text-slate-400 hover:text-blue-600 !rounded-xl flex items-center justify-center text-[12px] md:text-base"
                     onClick={() => onView(record.url)}
                     title="Читать материал"
                 />
                 <Button
                     type="text"
-                    className="text-slate-400 hover:text-blue-600 !rounded-xl flex items-center justify-center text-base"
+                    className="text-slate-400 hover:text-blue-600 !rounded-xl flex items-center justify-center text-[12px] md:text-base"
                     icon={<EditOutlined />}
                     onClick={() => onEdit?.(record.id)}
                     title="Редактировать материал"
@@ -160,11 +160,11 @@ export const getManualsColumns = ({
                     <Button
                         type="text"
                         danger
-                        className="text-slate-400 hover:text-rose-600 !rounded-xl flex items-center justify-center text-base"
+                        className="text-slate-400 hover:text-rose-600 !rounded-xl flex items-center justify-center text-[12px] md:text-base"
                         icon={<DeleteOutlined />}
                     />
                 </Popconfirm>
-            </Space>
+            </div>
         ),
     },
 ];
@@ -181,7 +181,7 @@ export const getFavoritesColumns = ({
         }),
         dataIndex: "title",
         key: "title",
-        className: "p-2 md:p-4 text-xs md:text-sm",
+        className: "p-2 md:p-4 text-xs md:text-sm w-[80%] md:w-[30%]",
         render: (text: string, record: MaterialsProps) => {
             const isManual = record.type === "manual";
             return (
@@ -199,8 +199,7 @@ export const getFavoritesColumns = ({
                             <CheckCircleOutlined className="text-base" />
                         )}
                     </div>
-                    {/* Ограничение ширины для предотвращения расползания строки */}
-                    <div className="max-w-[140px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[370px] py-0.5 cursor-default">
+                    <div className="max-w-[180px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[370px] py-0.5 cursor-default">
                         <h4
                             className="font-bold text-slate-800 text-xs sm:text-base truncate block w-full group-hover:text-blue-600 transition-colors m-0 leading-tight"
                             title={text}
@@ -222,7 +221,7 @@ export const getFavoritesColumns = ({
         dataIndex: "category",
         key: "category",
         width: "25%",
-        className: "p-4",
+        className: "hidden md:table-cell p-4",
         render: (category: string) => (
             <span className="text-[8px] md:text-[12px] font-bold text-[#900007] tracking-wider uppercase">
                 {category}
@@ -261,7 +260,7 @@ export const getFavoritesColumns = ({
                 "!text-[11px] md:!text-sm font-bold text-slate-500 tracking-wider p-2 md:p-4",
         }),
         key: "management",
-        className: "w-[20%] p-2 md:p-4 md:w-[20%]",
+        className: "w-[20%] p-2 md:p-4",
         align: "right" as const,
         render: (record: MaterialsProps) => (
             <div className="flex items-center justify-end gap-0.5 sm:gap-2">
@@ -278,7 +277,6 @@ export const getFavoritesColumns = ({
                     onConfirm={() => onDeleteLike?.(record.id)}
                     okText="Да"
                     cancelText="Нет"
-                    placement="topRight" // Чтобы окно подтверждения не уезжало за край мобильного экрана
                 >
                     <Button
                         type="text"

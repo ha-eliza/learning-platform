@@ -57,14 +57,11 @@ class MaterialController extends Controller
 
         if ($request->hasFile('pdf')) {
             foreach ($request->file('pdf') as $file) {
-                // Сохраняем бинарный файл в папку storage/app/public/materials
                 $path = $file->store('materials', 'public');
-                // Генерируем URL вида /storage/materials/имя.pdf
                 $storedFiles[] = \Illuminate\Support\Facades\Storage::url($path);
             }
         }
 
-        // 2. Создание записи в базе данных через модель
         Material::create([
             'title'       => $validated['title'],
             'content'     => $validated['content'] ?? '',
@@ -77,7 +74,6 @@ class MaterialController extends Controller
             'is_published' => $validated['is_published'],
         ]);
 
-        // 3. Перенаправляем преподавателя обратно в личный кабинет на вкладку публикаций
         return redirect('/dashboard')->with('success', 'Материал успешно опубликован.');
     }
     public function show(string $url_slug)

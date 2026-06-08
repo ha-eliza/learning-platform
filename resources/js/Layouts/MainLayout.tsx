@@ -108,8 +108,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
     return (
         <Layout className="min-h-screen bg-[#f8fafc] font-tenor">
             {/* ШАПКА ПЛАТФОРМЫ */}
-            <Header className="flex items-center justify-between bg-[#0f172a] px-8 h-16 border-b border-slate-800 sticky top-0 z-10">
-                <div className="text-3xl font-bold text-white tracking-wide select-none">
+            <Header className="flex items-center justify-between bg-[#0f172a] px-4 sm:px-8 h-14 sm:h-16 border-b border-slate-800 sticky top-0 z-10">
+                <div className="text-xl sm:text-3xl font-bold text-white tracking-wide select-none">
                     Source<span className="text-blue-500">.</span>Library
                 </div>
                 <div
@@ -117,9 +117,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     onClick={() => router.get("/dashboard")}
                 >
                     <Avatar
-                        size={34}
+                        size={32}
                         icon={<UserOutlined />}
-                        className="!bg-slate-700 group-hover:scale-105 transition-transform border border-slate-600"
+                        className="!bg-slate-700 group-hover:scale-105 transition-transform border border-slate-600 sm:!w-[34px] sm:!h-[34px]"
                     />
                 </div>
             </Header>
@@ -127,15 +127,15 @@ export default function MainLayout({ children }: MainLayoutProps) {
             <Layout hasSider>
                 <Sider
                     breakpoint="md"
-                    collapsedWidth={80}
+                    collapsedWidth={50}
                     width={260}
                     theme="light"
                     collapsible
                     trigger={null}
                     collapsed={isCollapsed}
                     onCollapse={(collapsed) => setIsCollapsed(collapsed)}
-                    className="!fixed !left-0 !top-16 !bottom-0 border-r border-slate-100 !bg-white pt-5 overflow-visible"
-                    style={{ width: isCollapsed ? 80 : 260 }}
+                    className="!fixed !left-0 sm:!top-16 !top-14 !bottom-0 border-r border-slate-100 !bg-white pt-5 overflow-visible"
+                    style={{ width: isCollapsed ? 50 : 260 }}
                 >
                     <div className="flex flex-col h-full justify-between py-4">
                         <Menu
@@ -165,9 +165,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     </div>
                 </Sider>
 
-                <Content
-                    className="ml-[80px] md:ml-[260px] p-4 md:p-8 min-h-[calc(100vh-64px)] transition-all duration-200"
-                >
+                <Content className="ml-[50px] md:ml-[260px] p-4 md:p-8 min-h-[calc(100vh-64px)] transition-all duration-200">
                     <div className="max-w-7xl mx-auto space-y-4 md:space-y-6 py-4 md:py-6">
                         {children}
                     </div>

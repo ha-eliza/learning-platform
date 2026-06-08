@@ -22,12 +22,12 @@ export const ManagementTable = <T extends { id: number }>({
 }: ManagementTableProps<T>) => {
 
     return (
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 md:p-6 space-y-4 font-tenor">
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm py-5 px-[0.4rem] md:p-6 space-y-4 font-tenor">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <Title
                     level={3}
                     style={{ margin: 0, color: "#0f172a" }}
-                    className="text-xl font-bold tracking-tight"
+                    className="md:!text-[24px] !text-[18px] font-bold tracking-tight"
                 >
                     {title}
                 </Title>
@@ -36,7 +36,7 @@ export const ManagementTable = <T extends { id: number }>({
                     prefix={<SearchOutlined className="text-slate-400" />}
                     value={searchText}
                     onChange={(e) => onSearchChange(e.target.value)}
-                    className="!w-full sm:!w-72 !rounded-xl !py-2 !border-slate-200 focus:!border-blue-500 font-sans"
+                    className="!w-full sm:!w-72 !rounded-xl !py-2 !border-slate-200 focus:!border-blue-500 font-sans md:!text-[14px] !text-[12px]"
                     allowClear
                 />
             </div>

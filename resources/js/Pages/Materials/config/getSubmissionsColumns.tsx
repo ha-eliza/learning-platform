@@ -25,7 +25,7 @@ const StatusBadge = ({
                 className="text-[11px] sm:text-xs font-bold text-emerald-600 bg-emerald-50/80 p-1 sm:px-2.5 sm:py-1 rounded-full flex items-center justify-center gap-1 w-7 h-7 sm:w-auto sm:h-auto border border-emerald-100 font-sans"
                 title={`Сдано • Оценка ${grade}`}
             >
-                <span className="sm:hidden text-xs">{grade}</span>
+                <span className="sm:hidden text-[10px]">{grade}</span>
                 <span className="hidden sm:inline">Сдано • Оценка {grade}</span>
             </span>
         );
@@ -37,7 +37,7 @@ const StatusBadge = ({
                 title={comment || "На доработке"}
             >
                 {/* На мобилках выводим крестик/символ доработки */}
-                <span className="sm:hidden text-xs">❌</span>
+                <span className="sm:hidden text-[8px]">❌</span>
                 <span className="hidden sm:inline">На доработке</span>
             </span>
         );
@@ -61,20 +61,20 @@ export const getStudentSubmissionsColumns = ({
         title: "ПРАКТИЧЕСКАЯ РАБОТА",
         onHeaderCell: () => ({
             className:
-                "!text-[11px] md:!text-sm font-bold text-slate-500 tracking-wider p-2 md:p-4",
+                "!text-[10px] md:!text-sm font-bold text-slate-500 tracking-wider p-2 md:p-4",
         }),
         dataIndex: ["material", "title"],
         key: "title",
         width: "35%",
         render: (text: string, record: any) => (
-            <div className="max-w-[220px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[370px] py-1 cursor-default">
+            <div className="max-w-[125px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[370px] py-1 cursor-default">
                 <h4
-                    className="font-bold text-slate-800 text-sm sm:text-base truncate block w-full group-hover:text-blue-600 transition-colors m-0"
+                    className="font-bold text-slate-800 text-[12px] sm:text-base truncate block w-full group-hover:text-blue-600 transition-colors m-0"
                     title={text || record.material_title || "Задание"}
                 >
                     {text || record.material_title || "Задание"}
                 </h4>
-                <div className="text-[10px] font-mono text-slate-400">
+                <div className="text-[8px] font-mono text-slate-400">
                     Отправлено: {renderDate(record.created_at)}
                 </div>
             </div>
@@ -84,7 +84,7 @@ export const getStudentSubmissionsColumns = ({
         title: "ПРЕПОДАВАТЕЛЬ",
         onHeaderCell: () => ({
             className:
-                "!text-[11px] md:!text-sm font-bold text-slate-500 tracking-wider p-2 md:p-4",
+                "!text-[10px] md:!text-sm font-bold text-slate-500 tracking-wider p-2 md:p-4",
         }),
         key: "teacher",
         width: "25%",
@@ -101,10 +101,10 @@ export const getStudentSubmissionsColumns = ({
         ),
     },
     {
-        title: "СТАТУС / ОЦЕНКА",
+        title: "СТАТУС",
         onHeaderCell: () => ({
             className:
-                "!text-[11px] md:!text-sm font-bold text-slate-500 tracking-wider p-2 md:p-4",
+                "!text-[10px] md:!text-sm font-bold text-slate-500 tracking-wider p-2 md:p-4",
         }),
         dataIndex: "status",
         key: "status",
@@ -121,7 +121,7 @@ export const getStudentSubmissionsColumns = ({
         title: "УПРАВЛЕНИЕ",
         onHeaderCell: () => ({
             className:
-                "!text-[11px] md:!text-sm font-bold text-slate-500 tracking-wider p-2 md:p-4",
+                "!text-[10px] md:!text-sm font-bold text-slate-500 tracking-wider p-2 md:p-4",
         }),
         key: "management",
         width: "20%",
@@ -130,7 +130,7 @@ export const getStudentSubmissionsColumns = ({
             const isRecordRejected = record.status === "rejected";
 
             return (
-                <div className="flex items-center justify-end gap-2">
+                <div className="flex items-center justify-end flex-wrap md:flex-nowrap gap-1 md:gap-2">
                     <Button
                         type="text"
                         icon={<ReadOutlined />}
@@ -203,7 +203,7 @@ export const getTeacherSubmissionsColumns = ({
         key: "title",
         width: "35%",
         render: (text: string, record: any) => (
-            <div className="max-w-[190px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[370px] py-0.5 cursor-default">
+            <div className="max-w-[125px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[370px] py-0.5 cursor-default">
                 <h4
                     className="font-bold text-slate-800 text-xs sm:text-base truncate block w-full group-hover:text-blue-600 transition-colors m-0 leading-tight"
                     title={record.material_title}
@@ -237,7 +237,7 @@ export const getTeacherSubmissionsColumns = ({
         ),
     },
     {
-        title: "СТАТУС / ОЦЕНКА",
+        title: "СТАТУС",
         onHeaderCell: () => ({
             className:
                 "!text-[11px] md:!text-sm font-bold text-slate-500 tracking-wider p-2 md:p-4",
@@ -263,7 +263,7 @@ export const getTeacherSubmissionsColumns = ({
         width: "20%",
         align: "right",
         render: (record: any) => (
-            <div className="flex items-center justify-end gap-2">
+            <div className="flex items-center justify-end gap-1 md:gap-2 flex-wrap md:flex-nowrap">
                 <Button
                     type="text"
                     icon={<ReadOutlined />}
